@@ -40,6 +40,10 @@ def template_data():
 		"urls":["/","/blog", "/about", "/projects"]
 		}
 
+@app.route("/sitemap")
+def sitemap():
+	return flask.jsonify([*template_data()["urls"], "/sitemap"])
+
 @app.route("/")
 def index():
 	return flask.render_template("./index.html"
