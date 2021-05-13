@@ -26,21 +26,70 @@ def gh_parse_event(event):
 	if event["type"] == "CreateEvent":
 		return (f"Created", event['repo']['name'])
 	if event["type"] == "DeleteEvent":
-		return (f"Deleted", event['repo']['name'])
+		return None
+
 	if event["type"] == "ForkEvent":
 		return (f"Forked", event['repo']['name'])
+
 	if event["type"] == "GollumEvent":
 		return None
 	if event["type"] == "IssueCommentEvent":
 		return None
+
 	if event["type"] == "IssuesEvent":
-		return (f"Created an issue in", event['repo']['name'])
+		action = event["payload"]["action"]
+
+		if action == "opened":
+			text = f"Opened an issue in"
+		elif action == "closed":
+			text = f"Closed an issue in"
+		elif action == "reopened":
+			text = f"Reopened an issue in"
+		elif action == "assigned":
+			return None
+		elif action == "unassigned":
+			return None
+		elif action == "labeled":
+			return None
+		elif action == "unlabeled":
+			return None
+		else:
+			return None
+		return (text, event['repo']['name'])
+
 	if event["type"] == "MemberEvent":
 		return None
+
 	if event["type"] == "PublicEvent":
-		return None
+		return (f"Made {event['repo']['name']} public", event['repo']['name'])
+
 	if event["type"] == "PullRequestEvent":
-		return (f"Created a pull request in", event['repo']['name'])
+		action = event["payload"]["action"]
+
+		if action == "opened":
+			text = f"Opened a pull request in"
+		elif action == "closed":
+			text = f"Closed a pull request in"
+		elif action == "reopened":
+			text = f"Reopened a pull request in"
+		elif action == "assigned":
+			return None
+		elif action == "unassigned":
+			return None
+		elif action == "review_requested":
+			text = f"Requested review in"
+		elif action == "review_request_removed":
+			return None
+		elif action == "labeled":
+			return None
+		elif action == "unlabeled":
+			return None
+		elif action == "synchronize":
+			return None
+		else:
+			return None
+		return (text, event['repo']['name'])
+
 	if event["type"] == "PullRequestReviewEvent":
 		return None
 	if event["type"] == "PullRequestReviewCommentEvent":
@@ -50,7 +99,7 @@ def gh_parse_event(event):
 		if len(commits) == 1:
 			return (f"Created 1 commit in", event['repo']['name'])
 		else:
-			return (f"Created {len(commits)} commits in", {event['repo']['name']})
+			return (f"Created {len(commits)} commits in", event['repo']['name'])
 	if event["type"] == "ReleaseEvent":
 		return (F"Published a new release in", event['repo']['name'])
 	if event["type"] == "SponsorshipEvent":
@@ -62,4 +111,4 @@ def gh_parse_event(event):
 
 @timed_lru_cache(15)
 def cpu_usage():
-	return psutil.cpu_percent(0.2)
+	return psutil.cpu_percent(0.05)
