@@ -1,0 +1,61 @@
+@import url("/static/css/main.css");
+
+#wrapper {
+	height: 100vh;
+	display: grid;
+}
+
+footer {
+	display: block;
+	background-color: var(--bg2);
+	color: var(--text2);
+	position: absolute;
+	padding-top: 0.5rem;
+	width: 100%;
+	left:0;
+}
+
+#ft-grid {
+	grid-template-columns: repeat(3, 1fr);
+	display: grid;
+}
+
+#ft-grid > div {
+	font-size: 100%;
+	margin-left: 2rem;
+	margin-top: 1.4rem;
+	max-height: 15rem;
+}
+
+#ft-grid > div > h4 {
+	margin-top: 0;
+}
+
+.ft-ul {
+	margin-top: -1rem;
+	margin-left: -1rem;
+	list-style-type: none;
+}
+
+#down {
+	display: block;
+	background: transparent;
+	border: none !important;
+	position: absolute;
+	bottom:0;
+	left: 50%;
+	margin-left: -1.25rem;
+	padding-left: 0;
+	padding-right: 0;
+	cursor: pointer;
+}
+
+#down > svg {
+	fill: var(--accent1);
+	width: 2.5rem;
+	transition: ease-in var(--speed);
+}
+
+#down:active > svg {
+	fill: var(--accent2);
+}

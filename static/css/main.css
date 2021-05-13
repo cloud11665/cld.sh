@@ -1,0 +1,142 @@
+:root {
+	--bg1: #212631;
+	--bg2: #101318;
+	--accent1: #4EA68D;
+	--accent2: #82D99E;
+	--text1: #F1F0F9;
+	--text2: #C9C5E8;
+	--speed: 150ms;
+	color: var(--text1);
+	background-color: var(--bg1);
+	font-family: "Lato";
+}
+
+html::-webkit-scrollbar {
+	display: none;
+}
+
+.selected {
+	font-weight: 700;
+}
+
+#navlist {
+	list-style-type: none;
+	font-size: 24px;
+	margin-top: 0;
+}
+
+#navlist > li {
+	margin-left: -1rem;
+	margin-top: 0.4rem;
+	margin-bottom: 0.4rem;
+}
+
+#navlist > li > a,
+#navlist > li > a:link,
+#navlist > li > a:visited,
+#navlist > li > a:active {
+	color: inherit;
+	font-size: 125%;
+	text-decoration: none;
+	width: 30%;
+}
+
+#navlist > li > a:hover {
+	color: var(--accent1);
+	transition: ease-in var(--speed);
+}
+
+.sitelink,
+.sitelink:link,
+.sitelink:visited,
+.sitelink:active {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.sitelink:hover {
+	color: var(--accent1);
+	text-decoration: underline;
+	transition: ease-in var(--speed);
+}
+
+
+#iconlist {
+	list-style-type: none;
+	display: flex;
+	flex-direction: row;
+	margin-left: auto;
+	padding-right: 1rem;
+}
+
+#iconlist > li > a > svg {
+	width: 1.5rem;
+	padding-left: 0.3rem;
+	padding-right: 0.3rem;
+	fill: var(--text1);
+}
+
+#iconlist > li > a:hover > svg{
+	fill: var(--text2);
+}
+
+#navwrap {
+	margin-top: 0;
+	padding-top: 0;
+	display: flex;
+	height: fit-content;
+}
+
+#wrapper {
+	display: grid;
+}
+
+
+.wide {
+	display: inline-block;
+	width: 60%;
+}
+
+#long {
+	display: inline-block;
+	margin-top: 0;
+	font-size: 100%;
+	margin-left: 2rem;
+	margin-top: -0.5rem;
+}
+
+#long > ul > li {
+	margin-bottom: 0.4rem;
+}
+
+.rotated {
+	transform: rotate(180deg);
+}
+
+
+@media screen and (max-width: 600px){
+	#iconlist {
+		flex-direction: column;
+	}
+	#iconlist > li {
+		padding-top: 0.3rem;
+	}
+	#long {
+		font-size: 80%;
+	}
+	#ft-grid {
+		grid-template-columns: repeat(1, 1fr) !important;
+	}
+}
+
+@media screen and (max-width: 1000px) and (min-width: 600px){
+	#ft-grid {
+		grid-template-columns: repeat(2, 1fr) !important;
+	}
+}
+
+@media screen and (max-width: 1300px){
+	#long > ul > li > code {
+		display: none !important;
+	}
+}

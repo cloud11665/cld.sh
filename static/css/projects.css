@@ -1,0 +1,85 @@
+@import url("/static/css/main_block.css");
+
+
+
+#projects {
+	width: min(60%, 1000px);
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	padding-left: 0;
+}
+
+.project {
+	width:100%;
+	display: inline-block;
+	transition: ease-in var(--speed);
+}
+
+.project:not(:first-child) {
+	margin-top: 4rem;
+}
+
+.columns {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 2fr 2fr;
+	transition: ease-in var(--speed);
+}
+
+.columns-r {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 2fr  2fr;
+	transition: ease-in var(--speed);
+}
+
+.photo {
+	float: left;
+	width: 100%;
+}
+.photo > img {
+	width: 100%;
+}
+
+.desc {
+	text-align: left;
+	transition: ease-in var(--speed);
+}
+
+.columns > .desc {
+	margin-left: 10%;
+}
+
+.columns-r > .desc {
+	margin-right: 10%;
+}
+
+@media screen and (max-width: 1300px){
+	.project {
+		width: 80%;
+		transition: ease-in var(--speed);
+	}
+	.project:not(:first-child) {
+		margin-top: 1rem;
+	}
+
+	.columns {
+		display:flex;
+		flex-direction: column;
+		transition: ease-in var(--speed);
+	}
+	.columns-r {
+		display:flex;
+		flex-direction: column-reverse;
+		transition: ease-in var(--speed);
+	}
+	.columns-r > .desc,
+	.columns > .desc {
+		margin-left: 0;
+		margin-right: 0;
+		transition: ease-in var(--speed);
+	}
+
+}

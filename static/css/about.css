@@ -1,0 +1,10 @@
+@import url("/static/css/main_sticky.css");
+
+#content  {
+	height: auto;
+}
+
+#content > p {
+	margin-left: 2rem;
+	margin-top: -0.4rem;
+}
