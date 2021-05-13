@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<link rel="shortcut icon" type="image/svg" href="static/images/favicon.svg">
+
+	{% block opengraph %}{% endblock %}
+	<meta property="og:site_name" content="cld.sh">
+	<meta property="og:title" content="cloud11665">
+	<meta property="og:url" content="https://cld.sh">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="static/images/logo.png">
+	<meta property="og:image:width" content="920">
+	<meta property="og:image:height" content="920">
+
+	<meta name="twitter:title" content="cloud11665">
+	<meta name="twitter:image" content="static/images/logo.png">
+	<meta name="twitter:url" content="https://cld.sh">
+	<meta name="twitter:card" content="summary">
+
+	<meta name="description" content="cloud11665">
+	{% block css %}{% endblock %}
+	<link rel="stylesheet" href="static/fonts/lato.css">
+</head>
+
+<body>
+	<div id="wrapper">
+		<nav id="navwrap">
+			<ul id="navlist">
+				{% for url in urls %}
+					<li>
+						{% if url == selected %}
+							<small>&#8658;</small>&nbsp;
+							<a href="{{ url }}" class="wide selected">{{ url }}</a>
+						{% else %}
+							&emsp;
+							<a href="{{ url }}" class="wide">{{ url }}</a>
+						{% endif %}
+					</li>
+				{% endfor %}
+			</ul>
+
+			<ul id="iconlist">
+				<li>
+					<a href="mailto:contact@cld.sh">
+						<svg role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+							<title>Mail</title>
+							<path d="M464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM48 96h416c8.8 0 16 7.2 16 16v41.4c-21.9 18.5-53.2 44-150.6 121.3-16.9 13.4-50.2 45.7-73.4 45.3-23.2.4-56.6-31.9-73.4-45.3C85.2 197.4 53.9 171.9 32 153.4V112c0-8.8 7.2-16 16-16zm416 320H48c-8.8 0-16-7.2-16-16V195c22.8 18.7 58.8 47.6 130.7 104.7 20.5 16.4 56.7 52.5 93.3 52.3 36.4.3 72.3-35.5 93.3-52.3 71.9-57.1 107.9-86 130.7-104.7v205c0 8.8-7.2 16-16 16z"></path>
+						</svg>
+					</a>
+				</li>
+				<li>
+					<a href="https://git.cld.sh">
+						<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<title>Git</title>
+							<path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"></path>
+						</svg>
+					</a>
+				</li>
+				<li>
+					<a href="https://github.com/Cloud11665">
+						<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<title>GitHub</title>
+							<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
+						</svg>
+					</a>
+				</li>
+				<li>
+					<a href="https://pypi.org/user/Cloud11665">
+						<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<title>PyPI</title>
+							<path d="M23.922 13.58v3.912L20.55 18.72l-.078.055.052.037 3.45-1.256.026-.036v-3.997l-.053-.036-.025.092z M23.621 5.618l-3.04 1.107v3.912l3.339-1.215V5.509zM23.92 13.457V9.544l-3.336 1.215v3.913zM20.47 14.71V10.8L17.17 12v3.913zM17.034 19.996v-3.912l-3.313 1.206v3.912zM17.17 16.057v3.868l3.314-1.206V14.85l-3.314 1.206zm2.093 1.882c-.367.134-.663-.074-.663-.463s.296-.814.663-.947c.365-.133.662.075.662.464s-.297.814-.662.946z M13.225 9.315l.365-.132-3.285-1.197-3.323 1.21.102.037 3.184 1.16zM20.507 10.664V6.751L17.17 7.965v3.913zM17.058 11.918V8.005l-3.302 1.202v3.912zM13.643 9.246l-3.336 1.215v3.913l3.336-1.215zM6.907 13.165l3.322 1.209v-3.913L6.907 9.252z M10.34 7.873l3.281 1.193V5.198l-3.28-1.193zM20.507 2.715L17.19 3.922v3.913l3.317-1.207zM16.95 3.903L13.724 2.73l-3.269 1.19 3.225 1.174zM15.365 4.606l-1.624.592v3.868l3.317-1.207V3.991l-1.693.615zm-.391 2.778c-.367.134-.662-.074-.662-.464s.295-.813.662-.946c.366-.133.663.074.663.464s-.297.813-.663.946z M10.229 18.41v-3.914l-3.322-1.209V17.2zM13.678 17.182v-3.913l-3.371 1.227v3.913z M13.756 17.154l3.3-1.2V12.04l-3.3 1.2zM13.678 21.217l-3.371 1.227v-3.912h-.078v3.912l-3.322-1.209v-3.913l-.053-.058-.025-.06-3.336-1.21v-3.948l.034.013 3.287 1.196.015-.078-3.261-1.187 3.26-1.187v-.109L3.876 9.62l-.307-.112 3.26-1.188v.877l.079-.055V6.769l3.257 1.185.058-.061L7.084 6.75l-.102-.037 3.24-1.179v-.083L6.854 6.677v.018l-.025.018v1.523L3.44 9.47v.02l-.025.017v4.007l-3.39 1.233v.019L0 14.784v3.995l.025.037 3.4 1.237.008-.006.007.01 3.4 1.238.008-.006.006.01 3.4 1.237.014-.009.012.01 3.45-1.256.026-.037-.078-.027zM3.493 9.563l3.257 1.185-3.257 1.187V9.562zM3.4 19.96L.078 18.752v-3.913l2.361.86.96.349v3.913zm.015-3.99L.335 14.85l-.182-.066 3.262-1.187v2.374zm3.399 5.231l-3.321-1.209v-3.912l3.321 1.209v3.912zM23.791 5.434l-3.21-1.17v2.338zM20.387 2.643l-3.24-1.18-3.27 1.19 3.247 1.182z"></path>
+						</svg>
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		{% block content %}
+		{% endblock %}
+
+		<button id="down" aria-label="scroll">
+			<svg role="img" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+				<path d="m3.707031 7l-.707031.707031 6.125 6.125 1.875 1.875 1.875-1.875 6.125-6.125-.707031-.707031-6.125 6.125-1.167969 1.167969-1.167969-1.167969-6.125-6.125" class="ColorScheme-Text"></path>
+			</svg>
+		</button>
+
+	</div>
+
+	<footer>
+		<section id="ft-grid">
+			<div>
+				<h4>Tech</h4>
+				<ul class="ft-ul">
+					<li>VanillaJS</li>
+					<li>Flask</li>
+					<li>100% Soy-free</li>
+				</ul>
+				<h4>Hosting</h4>
+				<ul class="ft-ul">
+					<li>Self-hosted in my homelab,</li>
+					<li>Proxied via DigitalOcean</li>
+				</ul>
+			</div>
+
+			<div>
+				<h4>Backend Info</h4>
+				<ul class="ft-ul">
+					<li>Rendered in {{ g.request_time() }}</li>
+					<li id="offset">{{ offset }}</li>
+					<li>&nbsp;</li>
+				</ul>
+				<h4>Server Info</h4>
+				<ul class="ft-ul">
+					<li>CPU usage: {{ cpu_usage }}%</li>
+					<li>
+						Proxy:
+							{% if api_status %}
+							working
+						{% else %}
+							error
+						{% endif %}
+					</li>
+				</ul>
+			</div>
+
+			<div>
+				<h4>Follow</h4>
+				<ul class="ft-ul">
+					<li>
+						<a class="sitelink" href="https://github.com/Cloud11665?tab=followers" target="_blank" rel="noopener">GitHub</a>
+					</li>
+					<li>
+						<a class="sitelink" href="/rss" target="_blank">RSS</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<div id="long">
+			<h4>Support me!</h4>
+			<ul class="ft-ul">
+				<li>
+					<a class="sitelink" href="static/images/xmr.png">XMR</a>: <code>45cnaQNNVSmXgpJiFjFqyaREjybMowYPAbUNsi7NwfF3eZtCiharuYqXyt8LMurmZW2TfEuP2mTe6QkQvcWNEBAM6T1WqUw</code></li>
+				<li>
+				<li>
+					<a class="sitelink" href="static/images/eth.png">ETH</a>: &nbsp;<code>0x016932d6100b814abeefc24cce77882e0846120c</code>
+				</li>
+				<li>
+					<a class="sitelink" href="static/images/btc.png">BTC</a>: &nbsp;<code>1P44XoL2GTuxUeqcW57tv5LfwUHyxFNaCk</code>
+				</li>
+			</ul>
+		</div>
+	</footer>
+
+</body>
+
+<script>
+	var offset_span = document.getElementById("offset")
+	var date = new Date()
+	var offset_l = -date.getTimezoneOffset()
+	var offset_s = parseInt(offset_span.textContent)
+	var offset = offset_l-offset_s
+
+	offset_span.textContent = `Timezone offset ${offset} min`
+
+	var scroll = document.getElementById("down")
+	var footer = document.getElementsByTagName("footer")[0]
+	var wrapper = document.getElementById("wrapper")
+	var arrow = document.querySelector("#down > svg")
+	var rotated = false
+
+	down.onclick = () => {
+		if (!rotated) {
+			arrow.setAttribute("class", "rotated")
+			rotated = true
+			footer.scrollIntoView({behavior: "smooth",block: "end"})
+		} else {
+			arrow.removeAttribute("class", "rotated")
+			rotated = false
+			window.scrollTo({top: 0, behavior: "smooth"})
+		}
+	}
+</script>
+
+</html>

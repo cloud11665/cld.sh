@@ -1,0 +1,55 @@
+{% extends "main.html" %}
+{% block title %}
+	cloud11665 projects
+{% endblock title %}
+{% block css %}
+	<link rel="stylesheet" href="static/css/projects.css">
+{% endblock css %}
+{% block content %}
+
+<ul id="projects">
+	<li class="project">
+		<h2><a href="https://vlo.rocks" class="sitelink">vlo.rocks</a></h2>
+		<div class="columns">
+			<div class="photo">
+				<img src="/static/images/vlorocks.webp" alt="vlo rocks screenshot">
+			</div>
+			<div class="desc">
+				<p align="center">Alternate frontend + API for my highschool's timetable</p>
+				<p align="center">Since the original was fucking garbage and closed source, frustrated me decided to reverse engineer their api to build mine that had much needed documentation + cached requests to ultimatly cut the response time in half.</p>
+				<small><small>
+					<p align="center">Frontend made by <a href="https://github.com/qepasa" class="sitelink">qepasa</a></p>
+				</small></small>
+			</div>
+		</div>
+	</li>
+	<li class="project">
+		<h2><a href="https://github.com/Cloud11665/koishi" class="sitelink">koishi</a></h2>
+		<div class="columns-r">
+			<div class="desc">
+				<p align="center">Python wrapper library for the unofficial webscraped API of the satori testing system.</p>
+				<p>Since on Satori everything is rendered server side, there wasn't any good way for a non-human to interact with it. All I wanted to do, was to <a href="https://github.com/Cloud11665/satori-points" class="sitelink">count my points</a>, and didn't want to do it by hand...</p>
+				<small><small>
+					<p align="center">I also enjoy playing some <a href="https://en.touhouwiki.net/wiki/Touhou_Project" class="sitelink">Touhou</a> :^)</p>
+				</small></small>
+			</div>
+			<div class="photo">
+				<img src="/static/images/koishi.webp" alt="vlo rocks screenshot">
+			</div>
+		</div>
+		<li class="project">
+			<h2><a href="https://github.com/Cloud11665/octagon" class="sitelink">octagon</a></h2>
+			<div class="columns">
+				<div class="photo">
+					<img src="/static/images/octagon.webp" alt="vlo rocks screenshot">
+				</div>
+				<div class="desc">
+					<p align="center">Octagon detection using openCV. Uses the chaining countour approximation algorithm.</p>
+					<p align="center">It also got mentioned in some <a href="https://shape-of-secret.blogspot.com/2020/06/view-octagon-angles-background.html" class="sitelink">rando article</a>.</p>
+				</div>
+			</div>
+	</li>
+</ul>
+
+
+{% endblock content %}

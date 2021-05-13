@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+{% block title %}
+	cloud11665
+{% endblock title %}
+{% block css %}
+	<link rel="stylesheet" href="static/css/index.css">
+{% endblock css %}
+{% block content %}
+	<svg role="img" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg" id="logo">
+		<g style="width: 100%; height: auto">
+			<path transform="scale(45) translate(-0.1 -8)" d="M 28.3 32.5 l 4.1 7.1 L 42.8 21.8 h -9 V 16.1 L 22.2 9.5 L 10.6 16.1 v 13.2 l 11.5 6.6 L 28.3 32.5 z M 39.4 23.8 l -6.9 11.8 l -6.9 -11.8 H 39.4 z" fill="#2bbc8a"></path>
+		</g>
+	</svg>
+
+	<div id="nick">
+			<h1>cloud<sub>11665</sub></h1>
+			<ul id="gh_activ">
+				{% for activ in activities[:3] %}
+					<li>
+						<p>{{ activ[0] }}
+							<a class="ghlink" href="https://github.com/{{ activ[1] }}" target="_blank">{{ activ[1] }}</a>
+						</p>
+					</li>
+				{% endfor %}
+				<li>.</li>
+				<li>.</li>
+			</ul>
+	</div>
+{% endblock content %}
