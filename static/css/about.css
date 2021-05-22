@@ -1,10 +1,14 @@
-@import url("/static/css/main_sticky.css");
+@import url("/static/css/main_block.css");
 
 #content  {
-	height: auto;
+	padding: 3rem 2rem 3rem 2rem;
+}
+
+#content > img {
+	display:block;
+	width: 15vw;
 }
 
 #content > p {
-	margin-left: 2rem;
-	margin-top: -0.4rem;
+	margin-top: -0.2rem;
 }
