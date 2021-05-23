@@ -16,11 +16,7 @@
 			<h1>cloud<sub>11665</sub></h1>
 			<ul id="gh_activ">
 				{% for activ in activities[:3] %}
-					<li>
-						<p>{{ activ[0] }}
-							<a class="ghlink" href="https://github.com/{{ activ[1] }}" target="_blank">{{ activ[1] }}</a>
-						</p>
-					</li>
+					<li><p>{{ activ|safe }}</p></li>
 				{% endfor %}
 				<li>.</li>
 				<li>.</li>

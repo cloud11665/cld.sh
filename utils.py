@@ -23,28 +23,30 @@ def timed_lru_cache(seconds:int=60, maxsize=None):
 def gh_parse_event(event):
 	if event["type"] == "CommitCommentEvent":
 		return None
+
 	if event["type"] == "CreateEvent":
-		return (f"Created", event['repo']['name'])
+		return f'Created a repository <a class="ghlink" href="{event["repo"]["url"]}">{event["repo"]["name"]}</a>'
+
 	if event["type"] == "DeleteEvent":
 		return None
 
 	if event["type"] == "ForkEvent":
-		return (f"Forked", event['repo']['name'])
+		return f'Forked <a class="ghlink" href="{event["payload"]["forkee"]["html_url"]}">{event["payload"]["forkee"]["full_name"]}</a> from <a class="ghlink" href="{event["repo"]["url"]}">{event["repo"]["name"]}</a>'
 
 	if event["type"] == "GollumEvent":
 		return None
+
 	if event["type"] == "IssueCommentEvent":
 		return None
 
 	if event["type"] == "IssuesEvent":
 		action = event["payload"]["action"]
-
 		if action == "opened":
-			text = f"Opened an issue in"
+			return f'Opened an <a class="ghlink" href="{event["payload"]["issue"]["html_url"]}">issue</a> in <a class="ghlink" href="{event["repo"]["url"]}">{event["repo"]["name"]}</a> that recived {event["payload"]["issue"]["comments"]} {["comment","comments"][event["payload"]["issue"]["comments"]>1]}'
 		elif action == "closed":
-			text = f"Closed an issue in"
+			return f'Closed an <a class="ghlink" href="{event["payload"]["issue"]["html_url"]}">issue</a> in <a class="ghlink" href="{event["repo"]["url"]}">{event["repo"]["name"]}</a>'
 		elif action == "reopened":
-			text = f"Reopened an issue in"
+			return f'Reopened an <a class="ghlink" href="{event["payload"]["issue"]["html_url"]}">issue</a> in <a class="ghlink" href="{event["repo"]["url"]}">{event["repo"]["name"]}</a>'
 		elif action == "assigned":
 			return None
 		elif action == "unassigned":
@@ -55,29 +57,27 @@ def gh_parse_event(event):
 			return None
 		else:
 			return None
-		return (text, event['repo']['name'])
 
 	if event["type"] == "MemberEvent":
 		return None
 
 	if event["type"] == "PublicEvent":
-		return (f"Made {event['repo']['name']} public", event['repo']['name'])
+		return f'Made <a class="ghlink" href="{event["repo"]["url"]}">{event["repo"]["name"]}</a> public'
 
 	if event["type"] == "PullRequestEvent":
 		action = event["payload"]["action"]
-
 		if action == "opened":
-			text = f"Opened a pull request in"
+			return f'Opened a <a class="ghlink" href="{event["payload"]["pull_request"]["_links"]["html"]["href"]}">pull request</a> in <a class="ghlink" href="{event["repo"]["url"]}">{event["repo"]["name"]}</a>'
 		elif action == "closed":
-			text = f"Closed a pull request in"
+			return f'Closed a <a class="ghlink" href="{event["payload"]["pull_request"]["_links"]["html"]["href"]}">pull request</a> in <a class="ghlink" href="{event["repo"]["url"]}">{event["repo"]["name"]}</a>'
 		elif action == "reopened":
-			text = f"Reopened a pull request in"
+			return f'Reopened a <a class="ghlink" href="{event["payload"]["pull_request"]["_links"]["html"]["href"]}">pull request</a> in <a class="ghlink" href="{event["repo"]["url"]}">{event["repo"]["name"]}</a>'
 		elif action == "assigned":
 			return None
 		elif action == "unassigned":
 			return None
 		elif action == "review_requested":
-			text = f"Requested review in"
+			return None
 		elif action == "review_request_removed":
 			return None
 		elif action == "labeled":
@@ -88,25 +88,27 @@ def gh_parse_event(event):
 			return None
 		else:
 			return None
-		return (text, event['repo']['name'])
 
 	if event["type"] == "PullRequestReviewEvent":
 		return None
+
 	if event["type"] == "PullRequestReviewCommentEvent":
 		return None
+
 	if event["type"] == "PushEvent":
 		commits = event["payload"]["commits"]
 		if len(commits) == 1:
-			return (f"Created 1 commit in", event['repo']['name'])
+			return f'Pushed {len(commits)} commit to <a class="ghlink" href="{event["repo"]["url"]}">{event["repo"]["name"]}</a>'
 		else:
-			return (f"Created {len(commits)} commits in", event['repo']['name'])
+			return f'Pushed {len(commits)} commits to <a class="ghlink" href="{event["repo"]["url"]}">{event["repo"]["name"]}</a>'
+
 	if event["type"] == "ReleaseEvent":
-		return (F"Published a new release in", event['repo']['name'])
+		return f'Released <a class="ghlink" href="{event["payload"]["release"]["html_url"]}">{event["payload"]["release"]["tag_name"]}</a> of <a class="ghlink" href="{event["repo"]["url"]}">{event["repo"]["name"]}</a>'
+
 	if event["type"] == "SponsorshipEvent":
 		return None
 	if event["type"] == "WatchEvent":
-		return None
-		return (f"Starred", event['repo']['name'])
+		return None #(f'Starred', event['repo']['name'])
 
 
 @timed_lru_cache(15)
