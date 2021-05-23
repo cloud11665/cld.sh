@@ -15,7 +15,7 @@ def before_request():
 def api_status():
 	return requests.get("https://sabat.dev", auth=("Cloud11665","")).ok
 
-@timed_lru_cache(5*60)
+@timed_lru_cache(15*60)
 def gh_activity():
 	resp = requests.get((
 		"https://api.github.com/users/Cloud11665/events/public"
