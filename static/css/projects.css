@@ -4,15 +4,17 @@
 
 #projects {
 	width: min(60%, 1000px);
+	transition: ease-in var(--speed);
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
 	padding-left: 0;
+	margin-bottom: 4rem;
 }
 
 .project {
-	width:100%;
+	width: 100%;
 	display: inline-block;
 	transition: ease-in var(--speed);
 }
@@ -57,8 +59,12 @@
 }
 
 @media screen and (max-width: 1300px){
+	#projects {
+		width: min(75%, 1000px);
+		transition: ease-in var(--speed);
+	}
 	.project {
-		width: 80%;
+		width: 100%;
 		transition: ease-in var(--speed);
 	}
 	.project:not(:first-child) {

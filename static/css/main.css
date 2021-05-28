@@ -11,6 +11,10 @@
 	font-family: "Lato";
 }
 
+body {
+	margin: 0;
+}
+
 html::-webkit-scrollbar {
 	display: none;
 }
@@ -91,6 +95,10 @@ html::-webkit-scrollbar {
 	display: grid;
 }
 
+.ft-ul > li > code {
+	transition: ease-in var(--speed);
+	filter: opacity(1);
+}
 
 .wide {
 	display: inline-block;
@@ -105,7 +113,7 @@ html::-webkit-scrollbar {
 	margin-top: -0.5rem;
 }
 
-#long > ul > li {
+.ft-ul > li {
 	margin-bottom: 0.4rem;
 }
 
@@ -122,10 +130,24 @@ html::-webkit-scrollbar {
 		padding-top: 0.3rem;
 	}
 	#long {
-		font-size: 80%;
+		width: 100%;
+		text-align: center;
+		margin-left: 0;
+	}
+	.ft-ul {
+		margin-left: 0 !important;
+		padding-left: 0;
 	}
 	#ft-grid {
 		grid-template-columns: repeat(1, 1fr) !important;
+	}
+	#ft-grid > div {
+		text-align: center;
+		margin: 1rem 0 0 0 !important;
+	}
+	#ft-grid > div > ul {
+		margin-left: 0;
+		padding-left: 0;
 	}
 }
 
@@ -136,7 +158,14 @@ html::-webkit-scrollbar {
 }
 
 @media screen and (max-width: 1300px){
-	#long > ul > li > code {
+	.ft-ul > li > code {
 		display: none !important;
+	}
+}
+
+@media screen and (max-width: 1310px){
+	.ft-ul > li > code {
+		transition: ease-in var(--speed);
+		filter: opacity(0);
 	}
 }

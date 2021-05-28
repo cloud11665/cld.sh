@@ -5,6 +5,7 @@
 }
 
 #content > img {
+	padding-left: 3rem;
 	display:block;
 	width: 15vw;
 }
