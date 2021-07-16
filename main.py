@@ -3,8 +3,10 @@ import time
 import requests
 
 from utils import *
+from flask_dirview import DirView
 
 app = flask.Flask(__name__)
+DirView(app, "./static", "/static")
 
 @app.before_request
 def before_request():
