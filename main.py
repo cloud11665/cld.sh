@@ -13,7 +13,7 @@ def before_request():
 
 @timed_lru_cache(15*60)
 def api_status():
-	return requests.get("https://sabat.dev", auth=("Cloud11665","")).ok
+	return True#requests.get("https://api.cld.sh").ok
 
 @timed_lru_cache(15*60)
 def gh_activity():
